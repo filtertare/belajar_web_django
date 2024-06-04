@@ -1,14 +1,11 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from . import views
-from blog import views as blogviews
-from kontak import views as kontakviews
 
 urlpatterns = [
     path('', views.index),
-    path('blog/', blogviews.index),
-    path('kontak/', kontakviews.index),
-    path('about/', views.about),
+    path('blog/', include('blog.urls')),
+    path('kontak/', include('kontak.urls')),
     path('admin/', admin.site.urls),
 ]

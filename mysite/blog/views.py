@@ -2,4 +2,8 @@ from django.shortcuts import render
 
 # Create your views here.
 def index(request):
-    return render(request, 'blog.html')
+    context = {
+        'title' : 'Blog',
+        'developer' : 'Arief Tri A',
+    }
+    return render(request, 'blog/index.html', context)
